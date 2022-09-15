@@ -127,10 +127,60 @@ class PharosControl():
             else:
                 return response.status_code
     
+    ### ---------------------------------------  OUTPUT ENERGY
+    def GetOutputEnergy():
+        response = requests.get(laserEndPoint + "/v0/Basic/ActualOutputEnergy", headers = requestHeaders)
+        if response.status_code == 200:
+            return response.text
+        else:
+            return response.status_code
+    
+    ### ---------------------------------------  OUTPUT POWER
+    def GetOutputPower():
+        response = requests.get(laserEndPoint + "/v0/Basic/ActualOutputPower", headers = requestHeaders)
+        if response.status_code == 200:
+            return response.text
+        else:
+            return response.status_code
+    
+    ### ---------------------------------------  RA POWER
+    def GetRAPower():
+        response = requests.get(laserEndPoint + "/v0/Basic/ActualRaPower", headers = requestHeaders)
+        if response.status_code == 200:
+            return response.text
+        else:
+            return response.status_code
+    
+    ### ---------------------------------------  OUTPUT FREQUENCY
+    def GetOutputFrequency():
+        response = requests.get(laserEndPoint + "/v0/Basic/ActualOutputFrequency", headers = requestHeaders)
+        if response.status_code == 200:
+            return response.text
+        else:
+            return response.status_code
+    
+    ### ---------------------------------------  RA FREQUENCY
+    def GetRAFrequency():
+        response = requests.get(laserEndPoint + "/v0/Basic/ActualRAFrequency", headers = requestHeaders)
+        if response.status_code == 200:
+            return response.text
+        else:
+            return response.status_code
+    
+    
+        
+    
     
 
 
 # Test Zone
+
+print ( PharosControl.GetOutputEnergy() )
+print ( PharosControl.GetOutputPower() )
+print ( PharosControl.GetRAPower() )
+print ( PharosControl.GetOutputFrequency() )
+print ( PharosControl.GetRAFrequency() )
+
 """
 print ( PharosControl.SetCompressorPosition(47500) )
 time.sleep(0.5)
@@ -151,4 +201,4 @@ print ( PharosControl.SetPulseCount(500) )
 time.sleep(0.5)
 print (PharosControl.GetPulseCount() )
 """
-print ( PharosControl.EnablePpOutput(True) )
+#print ( PharosControl.EnablePpOutput(True) )
